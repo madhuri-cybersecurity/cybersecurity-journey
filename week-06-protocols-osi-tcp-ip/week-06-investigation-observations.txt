@@ -1,0 +1,35 @@
+# Week 6 — Network Protocols & Communication Models Investigation
+
+## Practical Observations
+
+**1. DNS Lookup — `nslookup google.com`**
+- Result: Successful.
+- Observation: The DNS lookup returned multiple IP addresses for google.com.
+- Finding: The domain name was resolved to IP addresses.
+
+**2. HTTPS Response Headers — `curl -I https://www.google.com`**
+- Result: HTTP 200 OK.
+- Observation: The server returned an HTTP response with headers.
+- Finding: The HTTPS request completed successfully.
+
+**3. Verbose Connection Test — `curl -v -o NUL https://www.google.com`**
+- Result: Connection established, but the connection was reset while receiving the response.
+- Observation: Some connection attempts timed out before an IPv4 connection succeeded.
+- Finding: The request was sent, but the response could not be received successfully in this test.
+
+**4. HTTPS Retest — `curl -I --max-time 20 https://www.google.com`**
+- Result: HTTP 200 OK.
+- Observation: The HEAD request completed successfully.
+- Finding: This test succeeded, although the earlier verbose GET request had failed.
+
+## Overall Finding
+
+DNS resolution was successful. Both HTTPS HEAD requests returned HTTP 200 OK. 
+The verbose GET request encountered a connection reset during response reception. 
+These results show that different requests can produce different outcomes. 
+The cause of the connection reset cannot be determined from these tests alone.
+
+## Security Note
+
+These results do not, by themselves, prove malware or a security compromise. 
+The investigation records observed command outputs without making unsupported conclusions.

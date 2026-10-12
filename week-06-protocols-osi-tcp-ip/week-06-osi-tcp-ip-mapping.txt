@@ -1,0 +1,30 @@
+# Week 6 — OSI & TCP/IP Mapping
+
+## 1. Practical Activity Mapping
+
+| Practical Activity | Main Networking Function | OSI Layer | TCP/IP Layer |
+|---|---|---|---|
+| `nslookup google.com` | Resolves a domain name to IP addresses | Application | Application |
+| `curl -I https://www.google.com` | Sends an HTTP HEAD request over HTTPS | Application | Application |
+| HTTPS connection to port 443 | Provides transport communication and secure web access | Transport and Application | 
+Transport and Application |
+| IP address connection | Identifies the network destination | Network | Internet |
+
+## 2. Important Understanding
+
+- The OSI model has seven layers.
+- The TCP/IP model has four layers.
+- Network communication uses multiple layers working together.
+- A single command can involve more than one layer.
+- DNS resolution and HTTPS communication are different activities.
+
+## 3. Investigation Limitation
+
+These command-line tests help observe DNS resolution and web communication. 
+They do not directly capture every OSI layer or prove exactly what happened at every layer. 
+Packet-level investigation would require a tool such as Wireshark, which is outside this activity.
+
+## 4. Conclusion
+
+The practical investigation connected domain-name resolution and HTTPS requests with the networking models. 
+The results demonstrate how application-level activities depend on underlying network communication.
